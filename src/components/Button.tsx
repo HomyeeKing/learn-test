@@ -10,8 +10,8 @@ export default defineComponent({
     return () => (
        <>
        <h1>{props.name}</h1>
-         <button>{count.value}</button>
-         <input type="text" v-model={[text.value,'value']}/>
+         <button class="button">{count.value}</button>
+         <input type="text" class="input" v-model={[text.value,'value']}/>
       </>
       
       )
