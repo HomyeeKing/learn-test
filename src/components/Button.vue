@@ -1,22 +1,29 @@
 <template>
-    <div>
-        <button class="button" @click="()=> value++">click me </button>
-    </div>  
+  <div>
+    <h1>{{ name }}</h1>
+    <button class="button" @click="() => value++">{{ value }}</button>
+    <input type="text" class="input" v-model="text" />
+  </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent,ref } from 'vue'
+import { defineComponent, ref } from "vue";
 export default defineComponent({
-   name:'Button',
-   setup(){
-       const value = ref(1)
-       return {
-           value
-       }
-   }
+  name: "Button",
+  props: {
+    name: String,
+  },
+  setup() {
+    const value = ref(1);
+    return {
+      value,
+    };
+  },
+  data: () => ({
+    text: "",
+  }),
 });
 </script>
 
 <style scoped lang="scss">
-
 </style>
