@@ -4,20 +4,23 @@ export default defineComponent({
 	name: "ButtonTSX",
 	props: {
 		name: String,
+		modelValue: String,
 	},
-	emits: ["s"],
-	setup(props, { emit }) {
+	emits: ["update:modelValue"],
+	setup(props) {
 		const count = ref(1);
 		const text = ref("sss");
-		emit("s");
+		const handleChange = (e: Event) => {
+			console.log(e);
+		};
 		return () => (
 			<>
 				<h1>{props.name}</h1>
-				<span>test</span>
+				<span>{props.modelValue}</span>
 				<button class="button" onClick={() => count.value++}>
 					{count.value}
 				</button>
-				<input type="text" v-model={[text.value, "value"]} />
+				<input type="text" v-model={text.value} onChange={handleChange} />
 			</>
 		);
 	},

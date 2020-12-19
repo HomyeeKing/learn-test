@@ -1,23 +1,24 @@
 <template>
   <div>
-    <h1>{{ name }}</h1>
-    <button class="button" @click="() => value++">{{ value }}</button>
-    <input type="text" class="input" v-model="text" />
+    <button class="button" @click="$emit('welcome')" v-bind="$attrs">
+      click me
+    </button>
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "Button",
+  inheritAttrs: false,
   props: {
     name: String,
+    ciad: String,
+    onWelcome: Function,
   },
-  setup() {
-    const value = ref(1);
-    return {
-      value,
-    };
+  emits: ["welcome"],
+  setup(_, { attrs }) {
+    console.log(attrs);
   },
   data: () => ({
     text: "",
@@ -25,5 +26,3 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss">
-</style>

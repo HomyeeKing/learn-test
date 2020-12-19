@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import Button from "@/components/Button.vue";
+import Button from "@/components/Button";
 
 describe("test button", () => {
 	const wrapper = shallowMount(Button);
@@ -19,8 +19,8 @@ describe("test button", () => {
 		expect(wrapper.find("h1").text()).toBe(name);
 	});
 	it("should bind value to input by v-model", async () => {
-		const input = wrapper.get<HTMLInputElement>(".input");
-		await input.setValue("hhh");
-		expect(input.element.value).toBe("hhh");
+		const textInput = wrapper.find<HTMLInputElement>('input[type="text"]');
+		await textInput.setValue("hhh");
+		expect(textInput.element.value).toBe("hhh");
 	});
 });
