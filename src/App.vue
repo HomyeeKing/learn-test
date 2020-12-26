@@ -1,29 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  <Button></Button>
+  <div><Ant :onClickOnce="antClick" /></div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-import Button from '@/components/Button';
+<script lang='ts'>
+import { defineComponent } from "vue";
+import Ant from "@/components/ant";
+
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld,
-    Button
-  }
+  name: "App",
+  components: { Ant },
+  methods: {
+    antClick() {
+      alert(1);
+    },
+    antClickProp() {
+      alert(2);
+    },
+  },
 });
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
